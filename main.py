@@ -1,10 +1,12 @@
-# This is a ecording script to record Maths' lessons
+"""
+This script records Maths' lessons with OBS in automagically mode.
 
-#The script will parse ics calendar and make crons job accordly.
+The script will parse ics calendar and make crons job accordly, calendar must be named "mycal.ics" and must be located into a 'CALs' folder.  
 
-# https://icspy.readthedocs.io/en/stable/
 
-#Import a calendar from a file
+Ref https://icspy.readthedocs.io/en/stable/
+"""
+
 import os
 from ics import Calendar
 from crontab import CronTab
@@ -20,7 +22,7 @@ TimeZome=1
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-calendar = os.path.join("CALs","mycal_nov.ics")
+calendar = os.path.join("CALs","mycal.ics")
 
 with open (calendar, "r") as myfile:
     data=myfile.readlines()
