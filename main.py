@@ -14,7 +14,7 @@ from functions import listToString,CheckCoursesList
 import configparser
 
 
-#Il nostro Timezone è UTC+1, quindi aggiungo 1 alle varie date di gcal
+#UTC+1 -> Italy
 TimeZome=1
 
 # read user info
