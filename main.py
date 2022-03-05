@@ -1,12 +1,11 @@
-"""
-This script records Maths' lessons with OBS/crontab.
+# This is a ecording script to record Maths' lessons
 
-The script will parse ics calendar and make crons job accordly, calendar must be named "mycal.ics" and must be located into a 'CALs' folder.  
+#The script will parse ics calendar and make crons job accordly.
 
+# https://icspy.readthedocs.io/en/stable/
+#https://obsproject.com/forum/threads/run-obs-and-start-streaming-automatically-audio-not-captured.150336/
 
-Ref https://icspy.readthedocs.io/en/stable/
-"""
-
+#Import a calendar from a file
 import os
 from ics import Calendar
 from crontab import CronTab
@@ -15,14 +14,14 @@ from functions import listToString,CheckCoursesList
 import configparser
 
 
-#italy - UTC/GMT +1
+#Il nostro Timezone è UTC+1, quindi aggiungo 1 alle varie date di gcal
 TimeZome=1
 
 # read user info
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-calendar = os.path.join("CALs","mycal.ics")
+calendar = os.path.join("CALs","my_cal_50322.ics")
 
 with open (calendar, "r") as myfile:
     data=myfile.readlines()
@@ -46,7 +45,7 @@ for i in range(len(c.events)):
         if CheckCoursesList(str(e.name)) == True:
 
             #CREAZIONE JOB RECORDING
-            job = cron.new(command="export DISPLAY=:0 && obs -m --startrecording #DYNAMIC START- '{}'".format(e.name))
+            job = cron.new(command="export DISPLAY=:1 && XDG_RUNTIME_DIR=/run/user/1000 obs --startrecording #DYNAMIC START- '{}'".format(e.name))
             job.day.on(str(dtoday.day))
             job.month.on(str(dtoday.month))
             job.hour.on(str(int(e.begin.format('HH'))+TimeZome))
