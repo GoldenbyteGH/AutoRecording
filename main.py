@@ -89,6 +89,6 @@ if __name__ == '__main__':
                 print("Cron salvato ->'{}'".format(e.name))
 
     with open(os.path.join(config['Account']['AutoClassJoiner_path'],'Classes_TMP_file.json'),'w') as outfile:
-        json.dump(lessons_list,outfile)
+        json.dump(lessons_list,outfile) # AutoClassJoiner input file
 
     outfile.close()
