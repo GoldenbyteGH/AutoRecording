@@ -9,12 +9,13 @@ AutoRecording run  with AutoClassJoiner ( https://github.com/GoldenbyteGH/AutoCl
 
 Example
 
-`
-0 1 * * * /bin/bash ClassRecorder.sh & #STATIC_PYTHON_CRON_CLEANER
-mm1 HH DD MM * export DISPLAY=:1 && XDG_RUNTIME_DIR=/run/user/1000 obs --startrecording --minimize-to-tray #DYNAMIC START- 'FISICA GENERALE I'
-mm2 HH DD MM * export DISPLAY=:1 && /bin/bash ClassJoiner.sh #DYNAMIC JOIN - 'FISICA GENERALE I'
-mm3 HH DD MM * killall obs #DYNAMIC STOP- 'FISICA GENERALE I'
-`
+`0 1 * * * /bin/bash ClassRecorder.sh & #STATIC_PYTHON_CRON_CLEANER`
+`mm1 HH DD MM * export DISPLAY=:1 && XDG_RUNTIME_DIR=/run/user/1000 obs --startrecording --minimize-to-tray #DYNAMIC START- 'FISICA GENERALE I'`
+
+`mm2 HH DD MM * export DISPLAY=:1 && /bin/bash ClassJoiner.sh #DYNAMIC JOIN - 'FISICA GENERALE I'`
+
+`mm3 HH DD MM * killall obs #DYNAMIC STOP- 'FISICA GENERALE I'`
+
 
 Crontab file is rewrited every day at 01:00 by ClassRecorder.sh.
 
