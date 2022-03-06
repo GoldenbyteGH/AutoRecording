@@ -5,7 +5,7 @@ from re import search
 def CheckCoursesList(course):
 
 
-    with open("courses.yaml", 'r') as c:
+    with open("/project_path/AutoRecording/courses.yaml", 'r') as c:
         out = yaml.load(c, Loader=yaml.FullLoader)
     for item in out['CoursesToRecord']['courses']:
         if search(item,course):
