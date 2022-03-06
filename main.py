@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     lessons_list=[]
 
-    calendar = os.path.join("/project_path/AutoRecording/CALs","my_cal_50322.ics")
+    calendar = os.path.join("/project_path/AutoRecording/CALs","mycal.ics")
 
     with open (calendar, "r") as myfile:
         data=myfile.readlines()
