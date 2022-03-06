@@ -24,6 +24,7 @@ Other jobs are scheduled based calendar.ics and LinkCourses.json
 
 
 ClassRecorder.sh simply contain
+
 `
 /venv_path/bin/python /project_path/AutoRecording/main.py
 `
